@@ -33,3 +33,11 @@ def pets_by_breed (shop_hash, breed)
   end
   return breed_count
 end
+
+def find_pet_by_name(shop, pet_name)
+ names = []
+  for pet in shop[:pets]
+    names.push(pet) if pet[:name] == pet_name
+  end
+  return names[0]
+end
