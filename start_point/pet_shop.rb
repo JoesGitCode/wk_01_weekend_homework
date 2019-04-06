@@ -22,3 +22,14 @@ end
 def stock_count (shop_hash)
   shop_hash[:pets].length
 end
+
+##### REFACTOR WITH BETTER NAMES! ###########
+def pets_by_breed (shop_hash, breed)
+  breed_count = []
+  for pet in shop_hash[:pets]
+    if pet[:breed] == breed
+      breed_count << [:breed]
+    end
+  end
+  return breed_count
+end
