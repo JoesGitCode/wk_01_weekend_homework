@@ -65,13 +65,23 @@
     name: "Camelot of Pets"
   }
 
-def find_pet_by_name (shop_hash, pet_name)
-  for pet in shop_hash[:pets]
-    if pet[:name] == pet_name
-      return pet
-    else return @fds
-    end
+
+def find_pet_by_name(shop_stock, pet_name)
+ names = []
+  for pet in shop_stock[:pets]
+    names.push(pet) if pet[:name] == pet_name
   end
+
 end
 
-p find_pet_by_name(@pet_shop, "zvvzxc")
+
+def sell_pet_to_customer(shop_stock, customer_id, pet_name)
+  # pet_to_sell = find_pet_by_name()
+  # p pet_to_sell[:price]
+  # shop_stock[:admin][:pets_sold] ++
+  # shop_stock[:admin][:total_cash]
+  # customer_id[:cash] -= pet[:price]
+  # pet[:price]
+end
+
+sell_pet_to_customer(@pet_shop, @customer[1], "Arthur")
