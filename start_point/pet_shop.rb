@@ -58,3 +58,15 @@ end
 def customer_cash(customer_id)
   customer_id[:cash]
 end
+
+def remove_customer_cash(customer_id, amount_to_remove)
+  customer_id[:cash] -= amount_to_remove.to_i
+end
+
+def customer_pet_count(customer_id)
+  customer_id[:pets].length
+end
+
+def add_pet_to_customer(customer_id, new_pet)
+  customer_id[:pets].push(new_pet)
+end
