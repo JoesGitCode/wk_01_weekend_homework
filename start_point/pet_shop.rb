@@ -5,11 +5,10 @@ end
 def total_cash (shop_hash)
   shop_hash[:admin][:total_cash]
 end
-
-# def add_or_remove_cash (shop_hash, amount)
-#   total_cash += amount
-#   return total_cash
-# end
+########## REFACTOR WITH VARIABLES! ##############
+def add_or_remove_cash (shop_hash, amount)
+   shop_hash[:admin][:total_cash] += amount
+end
 
 def pets_sold (shop_hash)
   #why can i not make this a variable and plug it in later?
@@ -18,4 +17,8 @@ end
 
 def increase_pets_sold (shop_hash, num_of_pets_sold)
   shop_hash[:admin][:pets_sold] += num_of_pets_sold
+end
+
+def stock_count (shop_hash)
+  shop_hash[:pets].length
 end
