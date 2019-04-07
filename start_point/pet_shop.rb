@@ -35,11 +35,11 @@ def pets_by_breed(pet_shop, breed)
 end
 
 def find_pet_by_name(pet_shop, pet_name)
- names = []
+ pet_to_buy = []
   for pet in pet_shop[:pets]
-    names.push(pet) if pet[:name] == pet_name
+    pet_to_buy.push(pet) if pet[:name] == pet_name
   end
-  return names[0]
+  return pet_to_buy[0]
 end
 
 
@@ -74,33 +74,20 @@ end
 def customer_can_afford_pet(customer_id, new_pet)
   customer_id[:cash] > new_pet[:price]
 end
-# def test_sell_pet_to_customer__pet_found
-#   customer = @customers[0]
-#   pet = find_pet_by_name(@pet_shop,"Arthur")
-#
-#   sell_pet_to_customer(@pet_shop, pet, customer)
-#
-#   assert_equal(1, customer_pet_count(customer))
-#   assert_equal(1, pets_sold(@pet_shop))
-#   assert_equal(100, customer_cash(customer))
-#   assert_equal(1900, total_cash(@pet_shop))
-# end
 
-def sell_pet_to_customer(pet_shop, customer_id, pet_name)
-  names = []
-   for pet in pet_shop[:pets]
-     if pet[:name] == pet_name
-       names.push(pet)
-     else
-       return names[0]
-     end
-   end
-
-
-     pet_price = names[0][:price]
+def sell_pet_to_customer(pet_shop, pet_name, customer_id)
+  pet_to_buy = []
+  for pet in pet_shop[:pets]
+    pet_to_buy.push(pet) if pet == pet_name
+  end
+  if pet_to_buy.length > 0
+   pet_price = pet_to_buy[0][:price]
+   customer_funds = customer_id[:cash]
+   if customer_funds > pet_price
      pet_shop[:admin][:total_cash] += pet_price
      customer_id[:cash] -= pet_price
-     customer_id[:pets].push
+     customer_id[:pets].push(pet_to_buy[0])
      pet_shop[:admin][:pets_sold] += 1
-
+   end
+  end
 end
