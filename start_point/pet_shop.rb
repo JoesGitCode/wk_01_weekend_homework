@@ -6,8 +6,8 @@ def total_cash(pet_shop)
   pet_shop[:admin][:total_cash]
 end
 ########## REFACTOR WITH VARIABLES! ##############
-def add_or_remove_cash(pet_shop, amount)
-   pet_shop[:admin][:total_cash] += amount
+def add_or_remove_cash(pet_shop, amount_of_cash)
+   pet_shop[:admin][:total_cash] += amount_of_cash
 end
 
 def pets_sold(pet_shop)
@@ -91,3 +91,4 @@ def sell_pet_to_customer(pet_shop, pet_name, customer_id)
    end
   end
 end
+# Refactor: what if they wanted to buy more than one pet?
